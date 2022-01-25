@@ -8,6 +8,7 @@ To play the game you will need Python 3.9.0. Open a terminal and browse the root
 +-- hilo_game
     +-- __main__.py
     +-- card.py
+    +-- director.py
     +-- README.md
 
 ## Required tech
