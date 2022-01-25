@@ -32,7 +32,7 @@ class Director:
 
             elif self.card.points == 0 or self.card.points < 0:
                 self.is_playing = not True
-                print("You are a looser :( Keep trying.")
+                print("You are a loser :( Keep trying.")
 
             else:
                 self.is_playing = True
