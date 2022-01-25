@@ -16,17 +16,26 @@ class Director:
         self.win = 100
         self.lose = -75
         
+        
     def start_game(self):
         """Execute the functions to run the game"""
-
-        while self.is_playing:
+        
+        while self.is_playing == True:
+            self.card.pick()
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
-            if self.card.points<=0:
-                print("Game is over")
-            play_again=input("Play again? [y/n]: ")
-            self.is_playing = (play_again =="y") and self.card.points> 0
+        
+            if self.card.points == 1000 or self.card.points > 1000:
+                print("You are a winner!! :)")
+                self.is_playing = not True
+
+            elif self.card.points == 0 or self.card.points < 0:
+                self.is_playing = not True
+                print("You are a looser :( Keep trying.")
+
+            else:
+                self.is_playing = True
             
 
     def get_inputs(self):
@@ -35,7 +44,7 @@ class Director:
         Attribute:
             self (guess_card) = Get the input of the user.
         """
-
+    
         print(f"\nThe card is: {self.card.current}")
         self.guess_card = input("Higher or lower? (h/l): ")
        
@@ -43,7 +52,7 @@ class Director:
         
     def do_updates(self):
         """Add or subtract points to the user."""
-            
+       
         if self.card.current > self.card.next and self.guess_card == "l" \
         or self.card.current < self.card.next and self.guess_card == "h":
             self.card.points += self.win 
@@ -54,6 +63,7 @@ class Director:
 
 
     def do_outputs(self):
+       
         """Display to the user the results."""
         print(f"Next card was: {self.card.next}")
         print(f"Your score is: {self.card.points}")
