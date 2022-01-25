@@ -28,7 +28,7 @@ class Director:
         
             if self.card.points == 1000 or self.card.points > 1000:
                 print("You are a winner!! :)")
-                play_again = input("Dou you want to play again? (y/n): ")
+                play_again = input("Do you want to play again? (y/n): ")
                 if play_again == "y":
                     self.is_playing = True
                     self.card.points = 300
@@ -37,7 +37,7 @@ class Director:
 
             elif self.card.points == 0 or self.card.points < 0:
                 print("You are a loser :( Keep trying.")
-                play_again = input("Dou you want to play again? (y/n): ")
+                play_again = input("Do you want to play again? (y/n): ")
                 if play_again == "y":
                     self.is_playing = True
                     self.card.points = 300
